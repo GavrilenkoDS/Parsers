@@ -1,15 +1,10 @@
-
 from selenium import webdriver
-from bs4 import BeautifulSoup
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.action_chains import ActionChains
 import time
-
 
 
 chrome_service = webdriver.chrome.service.Service(ChromeDriverManager().install())
@@ -83,8 +78,6 @@ def processing2(input_data,url, driver = DRIVER):
 
     dropdown_elements = wait.until(EC.presence_of_all_elements_located((By.CLASS_NAME, 'ui-button')))
 
-
-    print(len(dropdown_elements))
     first_dropdown_toggle = dropdown_elements[1]
     first_dropdown_toggle.click()
     
@@ -178,12 +171,7 @@ def processing3(input_data,url, driver = DRIVER):
 
     time.sleep(2)
 
-  
     price_text = price_element.text.strip()
-
-
-
-   
 
     driver.quit()
 
